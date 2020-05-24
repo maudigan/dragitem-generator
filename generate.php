@@ -125,7 +125,7 @@ elseif ($_REQUEST['process'] === 'getdownloads') {
       <tbody>
 RESPONSE;
    foreach ($files_unsorted as $file) {
-      $response .= "<tr><td><a href='./output/$file'>".basename($file)."</a></td><td>".date("F d Y H:i:s.", filemtime($file))."</td></tr>\r\n";
+      $response .= "<tr><td><a href='./$file'>".basename($file)."</a></td><td>".date("F d Y H:i:s.", filemtime($file))."</td></tr>\r\n";
    }
    $response .= <<<RESPONSE
       </tbody>
