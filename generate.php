@@ -325,7 +325,6 @@ TPL;
    foreach($files as $file) {
 
       //convert this dds image and save as tempfile.png
-      file_put_contents($tempfilename, $image);
       exec("convert $file $tempfilename", $outputarray, $retval);
 
       if ($return == 1)
