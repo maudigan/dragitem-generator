@@ -325,12 +325,14 @@ TPL;
    foreach($files as $file) {
 
       //convert this dds image and save as tempfile.png
-      $url = $thisurl.'/'.$file; //it can be PSD, BMP, DDS and so on
-      $conversion_url = 'http://api.rest7.com/v1/image_convert.php?url=' . $url . '&format=png';
-      $data = json_decode(file_get_contents($conversion_url));
-      if (@$data->success !== 1) die('failed to connect to '.$conversion_url);
-      $image = file_get_contents($data->file);
       file_put_contents($tempfilename, $image);
+      exec("convert $file $tempfilename", $outputarray, $retval);
+
+      if ($return == 1)
+      {
+         set_progress("Failed to convert $file to $tempfilename.".$outputHeader);
+         exit(json_encode(array('STATUS' => 0)));
+      }
       
       //open then destroy the converted image
       $sourceimage = imagecreatefrompng($tempfilename);
