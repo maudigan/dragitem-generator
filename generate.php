@@ -429,7 +429,7 @@ TPL;
    //start manifest log for the zip file
    $manifest = <<<TPL
 This archive was generated using dragitemgen. The php source code for it can be found 
-at https://github.com/maudigan/dragitemgen. It allows you to convert the .dds item 
+at https://github.com/maudigan/dragitem-generator. It allows you to convert the .dds item 
 icon images from Everquest into png of gif, retile them into any number of rows and  
 columns (including 1x1), rename and number them in any way, and generate the CSS to
 describe the files all in one action. -Maudigan
